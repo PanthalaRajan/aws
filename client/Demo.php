@@ -28,11 +28,11 @@ if ($_POST["password"] !== $_POST["cpassword"]) {
     die("Passwords must match");
 }
 
-$password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
+// $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
 $mysqli = require __DIR__ . "/Demodb.php";
 
-$sql = "INSERT INTO client (firstname, lastname, email, password_hash)
+$sql = "INSERT INTO client (firstname, lastname, email, password)
         VALUES (?, ?, ?,?)";
         
 $stmt = $mysqli->stmt_init();
@@ -41,33 +41,20 @@ if ( ! $stmt->prepare($sql)) {
     die("SQL error: " . $mysqli->error);
 }
 
-$stmt->bind_param("ssss",
+$stmt->bind_param("sssi",
 $_POST["firstname"],
 $_POST["lastname"],
 $_POST["email"],
-$password_hash);
+$_POST["password"]);
                   
 if ($stmt->execute()) {
-    header("Location: SignUp.html");
+    header("Location: SignUp.php");
     exit;
 } else {
     echo "User Already Exist";
 }
 
-                  
-// if ($stmt->execute()) {
-
-//     header("Location: signup-success.html");
-//     exit;
-    
-// } else {
-    
-//     if ($mysqli->errno === 1062) {
-//         die("email already taken");
-//     } else {
-//         die($mysqli->error . " " . $mysqli->errno);
-//     }
-// }
+                
 
 
 

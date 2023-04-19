@@ -30,11 +30,11 @@ if (isset($_SESSION["user_id"])) {
         
         <p>Hello <?= htmlspecialchars($client["lastname"]) ?></p>
         
-        <p><a href="Logout.php">Log out</a></p>
+        <p><a href="logout.php">Log out</a></p>
         
     <?php else: ?>
         
-        <p><a href="Demo Login.php">Log in</a> or <a href="Demo.html">sign up</a></p>
+        <p><a href="loggin.php">Log in</a> or <a href="Reg.php">sign up</a></p>
         
     <?php endif; ?>
     

@@ -36,11 +36,10 @@
 }
 
 html {
-    font-size: 12px;
+    font-size: 14px;
 }
   
 body {
-    background: var(--color-light);
     font-family: poppins, sans-serif;
     min-height: 100vh;
     color: var(--color-dark);
@@ -467,4 +466,38 @@ main .recent-transactions .card-details .card {
     align-items: center;
     justify-content: center;
     border-radius: var(--border-radius-2);
+}
+
+ul li {
+    display: inline-block;
+    position: relative;
+}
+
+ul li a {
+    display: block;
+    padding: 20px 25px;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    font-size: 20px;
+}
+
+ul li ul.dropdown li {
+    display: block;
+}
+
+ul li ul.dropdown {
+    width: 100%;
+    background: #22438c;
+    position: relative;
+    z-index: 999;
+    display: none;
+}
+
+ul li a:hover {
+    background: #112c66;
+}
+
+ul li:hover ul.dropdown {
+    display: block;
 }

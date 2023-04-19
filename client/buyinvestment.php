@@ -1,68 +1,70 @@
 <?php
 // Include config file
-require_once "config.php";
- 
+include "db.php";
+if(isset($_POST["id"]) && !empty($_POST["id"]))
+{
+$id = $_POST["id"];
 // Define variables and initialize with empty values
-$name = $producttype = $instrument = $sector = $region = $country = $currency = $investment = "";
-$name_err = $producttype_err = $instrument_err = $sector_err = $region_err = $country_err = $currency_err = $investment_err = "";
- 
+$id = $name = $producttype = $instrument = $sector = $region = $country = $currency = $investment = "";
+$id_err = $name_err = $producttype_err = $instrument_err = $sector_err = $region_err = $country_err = $currency_err = $investment_err = "";
+
 // Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+
     // Validate name
-    $input_name = trim($_POST["name"]);
-    if(empty($input_name)){
-        $name_err = "Please enter a name.";
-    } else{
-        $name = $input_name;
-    }
+    // $input_name = trim($_POST["name"]);
+    // if(empty($input_name)){
+    //     $name_err = "Please enter a name.";
+    // } else{
+    //     $name = $input_name;
+    // }
     
     // Validate product type
-    $input_producttype = trim($_POST["producttype"]);
-    if(empty($input_producttype)){
-        $producttype_err = "Please enter an product type.";     
-    } else{
-        $producttype = $input_producttype;
-    }
+    // $input_producttype = trim($_POST["producttype"]);
+    // if(empty($input_producttype)){
+    //     $producttype_err = "Please enter an product type.";     
+    // } else{
+    //     $producttype = $input_producttype;
+    // }
 
     // Validate instrument
-    $input_instrument = trim($_POST["instrument"]);
-    if(empty($input_instrument)){
-        $instrument_err = "Please enter an instrument.";     
-    } else{
-        $instrument = $input_instrument;
-    }
+    // $input_instrument = trim($_POST["instrument"]);
+    // if(empty($input_instrument)){
+    //     $instrument_err = "Please enter an instrument.";     
+    // } else{
+    //     $instrument = $input_instrument;
+    // }
 
     // Validate sector
-    $input_sector = trim($_POST["sector"]);
-    if(empty($input_sector)){
-        $sector_err = "Please enter an region.";     
-    } else{
-        $sector = $input_sector;
-    }
+    // $input_sector = trim($_POST["sector"]);
+    // if(empty($input_sector)){
+    //     $sector_err = "Please enter an region.";     
+    // } else{
+    //     $sector = $input_sector;
+    // }
 
     // Validate region
-    $input_region = trim($_POST["region"]);
-    if(empty($input_region)){
-        $region_err = "Please enter an region.";     
-    } else{
-        $region = $input_region;
-    }
+    // $input_region = trim($_POST["region"]);
+    // if(empty($input_region)){
+    //     $region_err = "Please enter an region.";     
+    // } else{
+    //     $region = $input_region;
+    // }
 
     // Validate country
-    $input_country = trim($_POST["country"]);
-    if(empty($input_country)){
-        $country_err = "Please enter the country.";     
-    } else{
-        $country = $input_country;
-    }
+    // $input_country = trim($_POST["country"]);
+    // if(empty($input_country)){
+    //     $country_err = "Please enter the country.";     
+    // } else{
+    //     $country = $input_country;
+    // }
 
     // Validate currency
-    $input_currency = trim($_POST["currency"]);
-    if(empty($input_currency)){
-        $currency_err = "Please enter the currency.";     
-    } else{
-        $currency = $input_currency;
-    }
+    // $input_currency = trim($_POST["currency"]);
+    // if(empty($input_currency)){
+    //     $currency_err = "Please enter the currency.";     
+    // } else{
+    //     $currency = $input_currency;
+    // }
     
     // Validate investment
     $input_investment = trim($_POST["investment"]);
@@ -110,7 +112,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
  
- <!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -130,7 +132,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <div class="col-md-12">
                     <h2 class="mt-5">Buy Investment</h2>
                     <p>Please fill this form and submit to buy the investment.</p>
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                    <form action="buyinvestment.php" method="post">
                         <div class="form-group">
                             <label>Name</label>
                             <input type="text" name="name" class="form-control <?php echo (!empty($name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $name; ?>">
@@ -179,4 +181,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
     </div>
 </body>
-</html>
+</html> -->
